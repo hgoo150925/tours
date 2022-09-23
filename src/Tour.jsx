@@ -15,7 +15,7 @@ export const Tour = ({ id, name, info, image, price, removeTour }) => {
         <p>
           {readMore ? info : `${info.substring(0, 200)}...`}
           <button onClick={() => setReadMore(!readMore)}>
-            {readMore ? 'show less' : 'Read more'}
+            {readMore ? 'show less' : ' read more'}
           </button>
         </p>
         <button className="delete-btn" onClick={() => removeTour(id)}>
