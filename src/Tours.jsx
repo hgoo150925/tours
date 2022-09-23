@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Tour } from './Tour';
 
-export const Tours = ({ tours }) => {
+export const Tours = ({ tours, removeTour }) => {
   return (
     <section>
       <div className="title">
@@ -9,7 +9,7 @@ export const Tours = ({ tours }) => {
         <div className="underline"></div>
       </div>
       {tours.map(tour => {
-        return <Tour key={tour.id} {...tour} />;
+        return <Tour key={tour.id} {...tour} removeTour={removeTour} />;
       })}
     </section>
   );
