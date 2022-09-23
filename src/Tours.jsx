@@ -17,4 +17,5 @@ export const Tours = ({ tours, removeTour }) => {
 
 Tours.propTypes = {
   tours: PropTypes.array.isRequired,
+  removeTour: PropTypes.func.isRequired,
 };

@@ -32,4 +32,5 @@ Tour.propTypes = {
   info: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
+  removeTour: PropTypes.func.isRequired,
 };
