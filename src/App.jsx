@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Error } from './Error';
 
 import { Loading } from './Loading';
 import { Tours } from './Tours';
@@ -7,6 +8,7 @@ const url = 'https://course-api.com/react-tours-project';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [tours, setTours] = useState([]);
 
   const fetchTours = async () => {
@@ -17,7 +19,8 @@ function App() {
       setTours(data);
     } catch (error) {
       setIsLoading(false);
-      throw new Error(`Error: ${error.message}`);
+      setIsError(true);
+      throw new Error(`Status: ${error.message}`);
     }
   };
 
@@ -34,9 +37,17 @@ function App() {
     );
   }
 
+  if (isError) {
+    return (
+      <main>
+        <Error />
+      </main>
+    );
+  }
+
   return (
     <main>
-      <Tours />
+      <Tours tours={tours} />
     </main>
   );
 }
